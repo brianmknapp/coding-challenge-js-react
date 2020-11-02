@@ -1,24 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {EmployeeList} from "./components/employee/EmployeeList";
+
+const employees = [
+  {
+    id: 1,
+    firstName: 'Brian',
+    lastName: 'McGee',
+    position: 'CEO',
+    directReports: [2, 3]
+  },
+  {
+    id: 2,
+    firstName: 'Homer',
+    lastName: 'Thompson',
+    position: 'Dev Manager',
+    directReports: [4]
+  },
+  {
+    id: 3,
+    firstName: 'Rock',
+    lastName: 'Strongo',
+    position: 'Lead Tester'
+  },
+  {
+    id: 4,
+    firstName: 'Max',
+    lastName: 'Power',
+    position: 'Junior Software Engineer'
+  }
+];
 
 function App() {
+  let styles = {root: {fontFamily: 'Roboto'}}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={styles.root}>
+      <h1 className="page-title">Mindex Coding Challenge</h1>
+      {EmployeeList({employees: employees})}
     </div>
   );
 }
